@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="favicon.png" />
+		<link rel="stylesheet" href="app.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+			crossorigin="anonymous"
+		></script>
+		<title>Talk To Me Dave</title>
+	</head>
+	<body>
+		<div class="row full-height">
+			<div class="col-sm-3 text-on-the-left full-height show-border">
+				<div><strong>Quotes</strong></div>
+				<div id="HalRandomQuote"></div>
+			</div>
+			<div class="col-sm-6 show-border text-in-the-center">
+				<p>Center</p>
+				<div class="footer">
+					<form id="interact">
+						<div>
+							<div style="float: left;">
+								<input class="input" type="text" id="userIn" placeholder="Type in a message" class="pull-left" />
+							</div>
+							<div style="float: left; visibility: hidden; max-width: 0px;">
+								<input type="submit" style="visibility: hidden; max-width: 0px;" />
+							</div>
+							<div style="float: right;">
+								<button id="restart" type="reset" class="pull-right">
+									Restart
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-sm-3 show-border text-on-the-right">
+				<p>Right</p>
+			</div>
+		</div>
+	</body>
+	<script src="app.js"></script>
+</html>

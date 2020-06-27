@@ -1,10 +1,3 @@
-body {
-	background-image: url("background.jpg");
-	background-position: top;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
 .show-border {
 	border: 1px;
 	border-color: blue;
@@ -45,4 +38,19 @@ body {
 	width: -webkit-calc(100% - 25px);
 	width: -moz-calc(100% - 25px);
 	width: calc(100% - 25px);
+}
+
+.center {
+	position: relative;          /* where the next element will be automatically positioned */
+	display: inline-block;       /* causes element width to shrink to fit content */
+	left: 50%;                   /* moves left side of image/element to center of parent element */
+	transform: translate(-50%);  /* centers image/element on "left: 50%" position */
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-height:100%;
+	max-width: 100%;
 }

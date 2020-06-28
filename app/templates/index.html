@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" href="favicon.png" />
-		<link rel="stylesheet" href="app.css" />
+		<link rel="icon" href="/static/favicon.png" />
+		<link rel="stylesheet" href="/static/app.css" />
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script
@@ -19,7 +19,7 @@
 		></script>
 		<title>Talk To Me Dave</title>
 	</head>
-	<body style="background-color:black; overflow-x: hidden;">
+	<body style="background-color: black; overflow-x: hidden;">
 		<div class="row full-height">
 			<div class="col-sm-3 show-border text-on-the-left" style="padding-left: 30px;">
 				<div><strong>HAL Quotes</strong></div>
@@ -27,6 +27,8 @@
 			</div>
 			<div class="col-sm-6 show-border text-in-the-center">
 				<p>Center</p>
+				<div id="parent">
+				</div>
 				<div class="footer">
 					<form id="interact">
 						<div>
@@ -34,7 +36,7 @@
 								<input style="position: relative; width: calc(140% - 80px);" type="text" id="userIn" placeholder="Type in a message" />
 							</p>
 							<p style="float: left; visibility: hidden; max-width: 0px;">
-								<input type="submit" style="visibility: hidden; max-width: 0px;"/>
+								<input type="submit" style="visibility: hidden; max-width: 0px;" />
 							</p>
 							<p style="float: right;">
 								<button id="restart" type="reset" style="position: relative; width: 80px;">
@@ -46,10 +48,10 @@
 				</div>
 			</div>
 			<div class="col-sm-3 show-border text-on-the-right">
-				<br>
-				<img src="hal-9000.jpg" style="object-fit: scale-down;"/>
+				<br />
+				<img src="/static/hal-9000.jpg" style="object-fit: scale-down;" />
 			</div>
 		</div>
 	</body>
-	<script src="app.js"></script>
+	<script src="/static/app.js"></script>
 </html>

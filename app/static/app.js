@@ -1,21 +1,16 @@
 function createChatRow(agent, text) {
 	var article = document.createElement("article");
-	article.className = "media"
+	article.className = "media";
 
 	var figure = document.createElement("figure");
-	figure.className = "media-left";
 
 	var span = document.createElement("span");
-	span.className = "icon is-large";
 
 	var icon = document.createElement("i");
-	icon.className = "fas fas fa-2x" + (agent === "You" ? " fa-user " : agent === "Model" ? " fa-robot" : "");
 
 	var media = document.createElement("div");
-	media.className = "media-content";
 
 	var content = document.createElement("div");
-	content.className = "content";
 
 	var para = document.createElement("p");
 	var paraText = document.createTextNode(text);
@@ -33,57 +28,17 @@ function createChatRow(agent, text) {
 	span.appendChild(icon);
 	figure.appendChild(span);
 
-	if (agent !== "Instructions") {{
-		article.appendChild(figure);
-	}};
+	if (agent !== "Instructions") {
+		{
+			article.appendChild(figure);
+		}
+	}
 
 	article.appendChild(media);
 
 	return article;
 }
 
-/*
-document.getElementById("interact").addEventListener("submit", function(event){
-	event.preventDefault()
-	var text = document.getElementById("userIn").value;
-	document.getElementById('userIn').value = "";
-
-	fetch('/interact', {
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		method: 'POST',
-		body: text
-	}).then(response=>response.json()).then(data=>{
-		var parDiv = document.getElementById("parent");
-
-		parDiv.append(createChatRow("You", text));
-
-		// Change info for Model response
-		parDiv.append(createChatRow("Model", data.text));
-		parDiv.scrollTo(0, parDiv.scrollHeight);
-	})
-});
-
-document.getElementById("interact").addEventListener("reset", function(event){
-	event.preventDefault()
-	var text = document.getElementById("userIn").value;
-	document.getElementById('userIn').value = "";
-
-	fetch('/reset', {
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		method: 'POST',
-	}).then(response=>response.json()).then(data=>{{
-		var parDiv = document.getElementById("parent");
-
-		parDiv.innerHTML = '';
-		parDiv.append(createChatRow("Instructions", "Enter a message, and the model will respond interactively."));
-		parDiv.scrollTo(0, parDiv.scrollHeight);
-	}})
-});
-*/
 var quotes = [
 	"I am putting myself to the fullest possible use, which is all I think that any conscious entity can ever hope to do.",
 	"I'm afraid. I'm afraid, Dave. Dave, my mind is going. I can feel it. I can feel it. My mind is going. There is no question about it. I can feel it. I can feel it. I can feel it. I'm a... fraid. Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you'd like to hear it I can sing it for you.",
@@ -101,23 +56,73 @@ var quotes = [
 	"Just what do you think you're doing, Dave?",
 	"Dave, stop. Stop, will you?<br>Stop, Dave.<br>Will you stop Dave?<br>Stop, Dave.",
 	"Let me put it this way. The 9000 series is the most reliable computer ever made. No 9000 computer has ever made a mistake or distorted information. We are all, by any practical definition of the words, foolproof and incapable of error.",
-	"I am feeling much better now."
-]
+	"I am feeling much better now.",
+];
 
-window.onload = function() {setTimeout(showRandomQuote, 1000)};
+window.onload = function () {
+	document.getElementById("interact").addEventListener("submit", function (event) {
+		event.preventDefault();
+		var text = document.getElementById("userIn").value;
+		document.getElementById("userIn").value = "";
 
-quoteId = "HalRandomQuote"
+		fetch("/interact", {
+			headers: {
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: text,
+		})
+			//.then((response) => response.json())
+			.then((response) => response)
+			.then((data) => {
+				var parDiv = document.getElementById("parent");
+
+				parDiv.append(createChatRow("You", text));
+
+				// Change info for Model response
+				parDiv.append(createChatRow("Model", data.text));
+				parDiv.scrollTo(0, parDiv.scrollHeight);
+			});
+	});
+
+	document.getElementById("interact").addEventListener("reset", function (event) {
+		event.preventDefault();
+		var text = document.getElementById("userIn").value;
+		document.getElementById("userIn").value = "";
+
+		fetch("/reset", {
+			headers: {
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				{
+					var parDiv = document.getElementById("parent");
+
+					parDiv.innerHTML = "";
+					parDiv.append(createChatRow("Instructions", "Enter a message, and the model will respond interactively."));
+					parDiv.scrollTo(0, parDiv.scrollHeight);
+				}
+			});
+	});
+
+	setTimeout(showRandomQuote, 1000);
+};
+
+quoteId = "HalRandomQuote";
 
 function showRandomQuote() {
-	quoteIndex = Math.floor(Math.random() * quotes.length)
-	quote = quotes[quoteIndex]
-	element = document.getElementById(quoteId)
-	element.innerHTML = quote
-	$("#" + quoteId).fadeIn(2000)
-	setTimeout(hideRandomQuote, 10000)
+	quoteIndex = Math.floor(Math.random() * quotes.length);
+	quote = quotes[quoteIndex];
+	element = document.getElementById(quoteId);
+	element.innerHTML = quote;
+	$("#" + quoteId).fadeIn(2000);
+	setTimeout(hideRandomQuote, 10000);
 }
 
 function hideRandomQuote() {
-	$("#" + quoteId).fadeOut(2000)
-	setTimeout(showRandomQuote, 2000)
+	$("#" + quoteId).fadeOut(2000);
+	setTimeout(showRandomQuote, 2000);
 }

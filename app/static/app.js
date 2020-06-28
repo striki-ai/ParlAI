@@ -67,20 +67,22 @@ window.onload = function () {
 
 		fetch("/interact", {
 			headers: {
-				"Content-Type": "application/json",
+				"Content-Type": "text/plain",
 			},
 			method: "POST",
 			body: text,
 		})
-			//.then((response) => response.json())
-			.then((response) => response)
+			.then((response) => response.text())
 			.then((data) => {
 				var parDiv = document.getElementById("parent");
 
-				parDiv.append(createChatRow("You", text));
+				//parDiv.append(createChatRow("You", text));
 
 				// Change info for Model response
-				parDiv.append(createChatRow("Model", data.text));
+				// parDiv.append(createChatRow("Model", data.text));
+				newDiv = document.createElement("div");
+				newDiv.innerHTML = data;
+				parDiv.append(newDiv);
 				parDiv.scrollTo(0, parDiv.scrollHeight);
 			});
 	});

@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import request
 
 
 app = Flask(__name__)
@@ -11,8 +12,9 @@ def hello_world():
 
 @app.route('/interact', methods=['POST'])
 def msg_resp():
-    print("/interact called ...")
-    return "test test test" #render_template('chat_msg_resp.html')
+    fromDave = request.data.decode('UTF-8')
+    fromHAL = "<from HAL>"
+    return render_template('chat_msg_resp.html', fromDave = fromDave, fromHAL = fromHAL)
 
 
 if __name__ == '__main__':

@@ -54,3 +54,21 @@ img {
 	max-height:100%;
 	max-width: 100%;
 }
+
+div.dave-image {
+	background:url('/static/dave_character.png') left top;
+	background-size:contain;
+	background-position:center;
+	background-repeat:no-repeat;
+	display: block;
+	float: left;
+}
+
+div.hal-image {
+	background:url('/static/hal_character.png') left top;
+	background-size:contain;
+	background-position:center;
+	background-repeat:no-repeat;
+	display: block;
+	float: left;
+}

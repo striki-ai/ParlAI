@@ -1,44 +1,3 @@
-function createChatRow(agent, text) {
-	var article = document.createElement("article");
-	article.className = "media";
-
-	var figure = document.createElement("figure");
-
-	var span = document.createElement("span");
-
-	var icon = document.createElement("i");
-
-	var media = document.createElement("div");
-
-	var content = document.createElement("div");
-
-	var para = document.createElement("p");
-	var paraText = document.createTextNode(text);
-
-	var strong = document.createElement("strong");
-	strong.innerHTML = agent;
-	var br = document.createElement("br");
-
-	para.appendChild(strong);
-	para.appendChild(br);
-	para.appendChild(paraText);
-	content.appendChild(para);
-	media.appendChild(content);
-
-	span.appendChild(icon);
-	figure.appendChild(span);
-
-	if (agent !== "Instructions") {
-		{
-			article.appendChild(figure);
-		}
-	}
-
-	article.appendChild(media);
-
-	return article;
-}
-
 var quotes = [
 	"I am putting myself to the fullest possible use, which is all I think that any conscious entity can ever hope to do.",
 	"I'm afraid. I'm afraid, Dave. Dave, my mind is going. I can feel it. I can feel it. My mind is going. There is no question about it. I can feel it. I can feel it. I can feel it. I'm a... fraid. Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you'd like to hear it I can sing it for you.",
@@ -78,7 +37,14 @@ window.onload = function () {
 				var chatDiv = document.createElement("div");
 				chatDiv.innerHTML = data;
 				parDiv.append(chatDiv);
-				window.scrollTo(0,document.body.scrollHeight);
+
+				if (parDiv.scrollHeight + 54 > document.body.clientHeight) {
+					footerDiv = document.getElementById("footer");
+					footerDiv.style.position = "absolute";
+					footerDiv.style.bottom = "auto";
+				}
+
+				window.scrollTo(0, document.body.scrollHeight);
 			});
 	});
 

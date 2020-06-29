@@ -33,11 +33,10 @@ body {
 }
 
 .footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
-	width: -webkit-calc(100% - 25px);
-	width: -moz-calc(100% - 25px);
-	width: calc(100% - 25px);
+	width: 50%;
+	min-height: max-content;
 }
 
 .center {
@@ -81,10 +80,27 @@ div.hal-image {
 	margin-right: 0px;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	border-radius: 10px;
 	background-color: #101010;
+}
+
+.left-sidebar {
+	position: fixed;
+	float: left;
+	width: 24.5%;
+}
+
+.content {
+	float: left;
+	width: 50%;
+	margin-left: calc(24.5% + 2px);
+	/* padding-bottom: 50px; */
+	/* height: calc(100% - 150px); */
+}
+
+.right-sidebar {
+	position: fixed;
+	float: left;
+	width: 24.5%;
+	margin-left: calc(74.5% + 4px);
 }

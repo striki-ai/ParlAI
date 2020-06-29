@@ -75,15 +75,10 @@ window.onload = function () {
 			.then((response) => response.text())
 			.then((data) => {
 				var parDiv = document.getElementById("parent");
-
-				//parDiv.append(createChatRow("You", text));
-
-				// Change info for Model response
-				// parDiv.append(createChatRow("Model", data.text));
-				newDiv = document.createElement("div");
-				newDiv.innerHTML = data;
-				parDiv.append(newDiv);
-				parDiv.scrollTo(0, parDiv.scrollHeight);
+				var chatDiv = document.createElement("div");
+				chatDiv.innerHTML = data;
+				parDiv.append(chatDiv);
+				window.scrollTo(0,document.body.scrollHeight);
 			});
 	});
 

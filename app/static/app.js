@@ -55,20 +55,21 @@ window.onload = function () {
 
 		fetch("/reset", {
 			headers: {
-				"Content-Type": "application/json",
+				"Content-Type": "text/plain",
 			},
 			method: "POST",
 		})
-			.then((response) => response.json())
+			.then((response) => response.text())
 			.then((data) => {
-				{
-					var parDiv = document.getElementById("parent");
+			{
+				var parDiv = document.getElementById("parent");
+				parDiv.innerHTML = "";
 
-					parDiv.innerHTML = "";
-					parDiv.append(createChatRow("Instructions", "Enter a message, and the model will respond interactively."));
-					parDiv.scrollTo(0, parDiv.scrollHeight);
-				}
-			});
+				var chatDiv = document.createElement("div");
+				chatDiv.innerHTML = data;
+				parDiv.append(chatDiv);
+			}
+		});
 	});
 
 	setTimeout(showRandomQuote, 1000);

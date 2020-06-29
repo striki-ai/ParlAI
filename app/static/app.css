@@ -41,34 +41,34 @@ body {
 }
 
 .center {
-	position: relative;          /* where the next element will be automatically positioned */
-	display: inline-block;       /* causes element width to shrink to fit content */
-	left: 50%;                   /* moves left side of image/element to center of parent element */
-	transform: translate(-50%);  /* centers image/element on "left: 50%" position */
+	position: relative; /* where the next element will be automatically positioned */
+	display: inline-block; /* causes element width to shrink to fit content */
+	left: 50%; /* moves left side of image/element to center of parent element */
+	transform: translate(-50%); /* centers image/element on "left: 50%" position */
 }
 
 img {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	max-height:100%;
+	max-height: 100%;
 	max-width: 100%;
 }
 
 div.dave-image {
-	background:url('/static/dave_character.png') left top;
-	background-size:contain;
-	background-position:center;
-	background-repeat:no-repeat;
+	background: url("/static/dave_character.png") left top;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 	display: block;
 	float: left;
 }
 
 div.hal-image {
-	background:url('/static/hal_character.png') left top;
-	background-size:contain;
-	background-position:center;
-	background-repeat:no-repeat;
+	background: url("/static/hal_character.png") left top;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 	display: block;
 	float: left;
 }

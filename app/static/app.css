@@ -87,13 +87,15 @@ div.hal-image {
 .left-sidebar {
 	position: fixed;
 	float: left;
-	width: 24.5%;
+	width: 25%;
+	box-sizing: border-box;
 }
 
 .content {
 	float: left;
 	width: 50%;
-	margin-left: calc(24.5% + 2px);
+	margin-left: 25%;
+	box-sizing: border-box;
 	/* padding-bottom: 50px; */
 	/* height: calc(100% - 150px); */
 }
@@ -101,8 +103,9 @@ div.hal-image {
 .right-sidebar {
 	position: fixed;
 	float: left;
-	width: 24.5%;
-	margin-left: calc(74.5% + 4px);
+	width: 25%;
+	box-sizing: border-box;
+	margin-left: 75%;
 }
 
 .chat-text-message {

@@ -104,3 +104,9 @@ div.hal-image {
 	width: 24.5%;
 	margin-left: calc(74.5% + 4px);
 }
+
+.chat-text-message {
+	padding: 10px 10px 10px 10px;
+	width: calc(100% - 48px);
+}
+

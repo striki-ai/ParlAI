@@ -62,6 +62,10 @@ window.onload = function () {
 			.then((response) => response.text())
 			.then((data) => {
 			{
+				footerDiv = document.getElementById("footer");
+				footerDiv.style.position = "fixed";
+				footerDiv.style.bottom = "0";
+
 				var parDiv = document.getElementById("parent");
 				parDiv.innerHTML = "";
 
